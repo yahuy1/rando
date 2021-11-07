@@ -1,24 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
-
+import Homepage from './component/homepage.js'
+import Play2 from './component/play2.js'
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
+import Howtoplay from './component/howtoplay'
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Rando
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path='/' component={Homepage} />
+        <Route exact path='/play' component={Play2} />
+        <Route path='/:string' component={Homepage} />
+        <Route exact path='/howtoplay' component={Howtoplay} />
+      </Switch>
+    </Router>
   );
 }
 
